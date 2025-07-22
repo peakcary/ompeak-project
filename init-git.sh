@@ -25,8 +25,8 @@ Ready for deployment to Alibaba Cloud!"
 # 设置主分支
 git branch -M main
 
-# 添加远程仓库
-git remote add origin https://github.com/peakcary/ompeak-project.git
+# 添加远程仓库 (SSH方式)
+git remote add origin git@github.com:peakcary/ompeak-project.git
 
 echo "🎯 Git repository initialized!"
 echo "📝 Next steps:"

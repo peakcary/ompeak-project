@@ -15,8 +15,32 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return application info object', () => {
+      const result = appController.getHello();
+      expect(result).toBeDefined();
+      expect(result.message).toContain('OMPeak Project API is running');
+      expect(result.service).toBe('NestJS Backend');
+      expect(result.version).toBe('1.0.0');
+    });
+  });
+
+  describe('health', () => {
+    it('should return health status', () => {
+      const result = appController.getHealth();
+      expect(result).toBeDefined();
+      expect(result.status).toBe('OK');
+      expect(result.uptime).toBeDefined();
+      expect(result.timestamp).toBeDefined();
+    });
+  });
+
+  describe('status', () => {
+    it('should return status information', () => {
+      const result = appController.getStatus();
+      expect(result).toBeDefined();
+      expect(result.status).toBe('active');
+      expect(result.message).toBe('Service is running normally');
+      expect(result.deployment).toBeDefined();
     });
   });
 });
